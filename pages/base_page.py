@@ -10,6 +10,12 @@ class BasePage:
         self.config_helper = ConfigHelper()
         self.wait = WebDriverWait(self.driver, self.config_helper.get_explicit_wait())
 
+    # TODO: Move this method to specific component class (e.g. NavigationMenu)
+    def click_navigation_menu_button(self, menu_name):
+        menu_xpath = f'//a[span[contains(text(), "{menu_name}")]]'
+        menu_element = self.wait.until(EC.element_to_be_clickable((By.XPATH, menu_xpath)))
+        menu_element.click()
+
     # Get the title of the page.
     def get_title(self):
         return self.driver.title
@@ -25,6 +31,10 @@ class BasePage:
     # Wait for the element to be clickable
     def wait_until_element_clickable(self, locator):
         return self.wait.until(EC.element_to_be_clickable(locator))
+    
+    def wait_until_url_contains(self, url):
+        print(f"Waiting for URL to contain: {url}")
+        return self.wait.until(EC.url_contains(url))
 
 """
 Common WebDriver calls:

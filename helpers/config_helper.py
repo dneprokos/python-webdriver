@@ -14,3 +14,7 @@ class ConfigHelper:
 
     def get_implicit_wait(self):
         return self.config_data.get("implicit_wait", 10)
+    
+    def get_base_url(self):
+        base_url = self.config_data.get("base_url", "https://qa-automation-test-site.web.app")
+        return base_url.rstrip("/")
