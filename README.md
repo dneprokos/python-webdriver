@@ -45,6 +45,7 @@ Note: Please be careful, some of the browser versions and WebDriver executables 
 - At this moment you can change
     - browser (Supported values are: "Firefox", "Chrome", "Headless Chrome")
     - implicit_wait (Just integer value for implicit timeout)
+    - explicit_wait (Just integer value for explicit timeout)
 
 ![Config file](/images/config_json.png)
 
