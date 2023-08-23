@@ -11,6 +11,21 @@ This Project design to pratice in creation of WebDriver tests using Python progr
 - Install pipenv, run `pip install pipenv` from the command line.
 - In the root of the repository, run "pipenv install" from the command line.
 
+## WebDriver Setup
+
+- For Web UI testing, you will need to install the latest versions of the browsers e.g. [Google Chrome](https://www.google.com/chrome/) or/and [Mozilla Firefox](https://www.mozilla.org/en-US/firefox/).
+- You will also need to install the latest versions of the WebDriver executables for these browsers: [ChromeDriver](https://sites.google.com/a/chromium.org/chromedriver/) for the browsers e.g Chrome
+and [geckodriver](https://github.com/mozilla/geckodriver/releases) for Firefox.
+
+Note: Please be careful, some of the browser versions and WebDriver executables may be not compatible. So, it's recommended to use latest versions of both if you don't need some specific version
+
+### Example of WebDriver Setup for Windows
+
+1. Create a folder named `C:\Selenium`. Note: It can be any name name
+2. Move the executables into this folder.
+3. Add this folder to the *Path* environment variable. (See [How to Add to Windows PATH Environment Variable](https://helpdeskgeek.com/windows-10/add-windows-path-environment-variable/).)
+
+
 ## Code Editor
 
 - I was using Visual Studio Code [Visual Studio Code](https://code.visualstudio.com/docs/languages/python)
