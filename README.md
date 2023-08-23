@@ -2,6 +2,7 @@
 
 This Project design to pratice in creation of WebDriver tests using Python programming language
 
+![Config file](/images/python_vs_browsers.png)
 
 # Setup Instructions
 
@@ -26,7 +27,7 @@ Note: Please be careful, some of the browser versions and WebDriver executables 
 3. Add this folder to the *Path* environment variable. (See [How to Add to Windows PATH Environment Variable](https://helpdeskgeek.com/windows-10/add-windows-path-environment-variable/).)
 
 
-## Code Editor
+# Code Editor
 
 - I was using Visual Studio Code [Visual Studio Code](https://code.visualstudio.com/docs/languages/python)
 - Poople also recommend [PyCharm](https://www.jetbrains.com/pycharm/)
@@ -34,4 +35,16 @@ Note: Please be careful, some of the browser versions and WebDriver executables 
 
 # Run tests
 
+## Run from command line
+
 - Run command `pipenv run python -m pytest` from the command line
+
+## Run configuration
+
+- Edit "config.json" file in order to update test config
+- At this moment you can change
+    - browser (Supported values are: "Firefox", "Chrome", "Headless Chrome")
+    - implicit_wait (Just integer value for implicit timeout)
+
+![Config file](/images/config_json.png)
+
