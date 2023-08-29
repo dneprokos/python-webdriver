@@ -10,7 +10,15 @@ This Project design to pratice in creation of WebDriver tests using Python progr
 
 - Install Python of version "3.11" or higher from [Python.org](https://www.python.org/downloads/). Don't forget to include it to PATH variables
 - Install pipenv, run `pip install pipenv` from the command line.
+
+
+## Install dependencies
+
 - In the root of the repository, run "pipenv install" from the command line.
+
+##  Activate a virtual environment
+
+- Run "pipenv shell" from command line to activate virtual environment
 
 ## WebDriver Setup
 
