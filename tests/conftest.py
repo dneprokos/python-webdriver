@@ -5,6 +5,7 @@ The name of the module is important, as pytest will discover fixtures in files n
 
 import json
 import pytest
+from helpers.navigation_helper import NavigationHelper
 import selenium.webdriver
 
 @pytest.fixture
@@ -49,3 +50,8 @@ def browser(config):
 
   # Quit the WebDriver instance for the cleanup
   b.quit()
+
+@pytest.fixture(scope="function")
+def browser_after_login(browser):
+  NavigationHelper(browser).open_base_page_and_login_with_session_storage()
+  return browser

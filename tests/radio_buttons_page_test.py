@@ -3,7 +3,7 @@ This module contains tests for the radio buttons page.
 """
 
 import pytest
-from pages.radio_buttons_page import RadioButtonsPage
+from pages.radio_button.radio_buttons_page import RadioButtonsPage
 from helpers.navigation_helper import NavigationHelper, PageNames
 
 @pytest.mark.parametrize('button_name', ['Winter', 'Spring', 'Summer', 'Autumn'])

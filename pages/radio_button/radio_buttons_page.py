@@ -2,7 +2,7 @@
 This module contains the RadioButtonsPage,
 """
 from selenium.webdriver.common.by import By
-from .base_page import BasePage
+from ..base_page import BasePage
 from helpers.page_names import PageNames
 
 class RadioButtonsPage(BasePage):

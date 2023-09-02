@@ -2,7 +2,7 @@
 Page Object Model for Home Page
 """
 
-from .base_page import BasePage
+from ..base_page import BasePage
 from helpers.page_names import PageNames
 from helpers.config_helper import ConfigHelper
 

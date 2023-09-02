@@ -1,8 +1,8 @@
 """
 These are the tests for the login page.
 """
-from pages.login_page import LoginPage
-from pages.home_page import HomePage
+from pages.login.login_page import LoginPage
+from pages.home.home_page import HomePage
 from helpers.page_names import PageNames
 from helpers.config_helper import ConfigHelper
 
