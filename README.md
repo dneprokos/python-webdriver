@@ -49,6 +49,10 @@ Note: Please be careful, some of the browser versions and WebDriver executables 
 
 - Run command `pipenv run python -m pytest -n 5` from command line in order to run tests in parallel. Number "5" can be changed to expected number of threads
 
+- Run command `pipenv run python -m pytest -s` from command line to run all the tests and see all printed outputs
+
+- Run command `pipenv run python -m pytest -m 'smoke'` from command line when you want to add test category
+
 ## Run configuration
 
 - Edit "config.json" file in order to update test config
