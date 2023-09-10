@@ -5,8 +5,11 @@ The name of the module is important, as pytest will discover fixtures in files n
 
 import json
 import pytest
+import os
 from helpers.navigation_helper import NavigationHelper
 import selenium.webdriver
+from selenium.common.exceptions import WebDriverException
+import datetime  # Import the datetime module
 
 @pytest.fixture
 def config(scope="session"): # scope="session" means that the fixture is initialized only once, before all tests are run. Other possible values are "function", "class", and "module".
@@ -55,3 +58,25 @@ def browser(config):
 def browser_after_login(browser):
   NavigationHelper(browser).open_base_page_and_login_with_session_storage()
   return browser
+
+# Define a custom pytest hook to take a screenshot on test failure
+@pytest.hookimpl(tryfirst=True, hookwrapper=True)
+def pytest_runtest_makereport(item, call):
+    outcome = yield
+    rep = outcome.get_result()
+
+    # Check if the test failed
+    if rep.failed:
+        try:
+            browser = item.funcargs['browser']
+            # Get the current date and time
+            current_time = datetime.datetime.now().strftime("%Y-%m-%d_%H-%M-%S")
+            # Build the screenshot filename
+            screenshot_dir = 'failed_test_screenshots'
+            os.makedirs(screenshot_dir, exist_ok=True)  # Create the directory if it doesn't exist
+            screenshot_name = f'{item.name}_{current_time}.png'
+            screenshot_path = os.path.join(screenshot_dir, screenshot_name)
+            # Capture a screenshot using WebDriver and save it to the specified path
+            browser.save_screenshot(screenshot_path)
+        except (WebDriverException, KeyError):
+            pass  # Handle exceptions gracefully
