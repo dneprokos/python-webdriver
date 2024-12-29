@@ -1,4 +1,4 @@
-name: Run Tests with Headless Browsers
+name: Run Tests with Report
 
 on:
   push:
@@ -25,15 +25,12 @@ jobs:
         pip install pipenv
         pipenv install --dev
 
-    - name: Install Browsers
-      run: |
-        sudo apt-get update
-        sudo apt-get install -y chromium-browser firefox
+    - name: Set PYTHONPATH
+      run: echo "PYTHONPATH=$PYTHONPATH:$(pwd)" >> $GITHUB_ENV
 
     - name: Run Tests with pytest
       run: |
-        pipenv run pytest --html=report.html --self-contained-html
-      continue-on-error: false
+        PYTHONPATH=$(pwd) pipenv run pytest --html=report.html --self-contained-html
 
     - name: Upload Test Report
       uses: actions/upload-artifact@v3
