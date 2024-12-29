@@ -7,8 +7,12 @@ import json
 import pytest
 import os
 from helpers.navigation_helper import NavigationHelper
-import selenium.webdriver
+from selenium import webdriver
 from selenium.common.exceptions import WebDriverException
+from webdriver_manager.chrome import ChromeDriverManager
+from webdriver_manager.firefox import GeckoDriverManager
+from selenium.webdriver.chrome.service import Service as ChromeService
+from selenium.webdriver.firefox.service import Service as FirefoxService
 import datetime  # Import the datetime module
 
 @pytest.fixture
@@ -32,18 +36,21 @@ def browser(config):
 
   # Initialize the WebDriver instance
   if config['browser'] == 'Firefox':
-    b = selenium.webdriver.Firefox()
+    b = webdriver.Firefox(service=FirefoxService(GeckoDriverManager().install()))
 
   elif config['browser'] == 'Chrome':
-    b = selenium.webdriver.Chrome()
+    b = webdriver.Chrome(service=ChromeService(ChromeDriverManager().install()))
 
   elif config['browser'] == 'Headless Chrome':
-    opts = selenium.webdriver.ChromeOptions()
+    opts = webdriver.ChromeOptions()
     opts.add_argument('headless')
-    b = selenium.webdriver.Chrome(options=opts)
+    b = webdriver.Chrome(service=ChromeService(ChromeDriverManager().install()), options=opts)
 
   else:
     raise Exception(f'Browser "{config["browser"]}" is not supported')
+  
+  # Maximize the browser window
+  b.maximize_window()
 
   # Make its calls wait for elements to appear
   b.implicitly_wait(config['implicit_wait'])

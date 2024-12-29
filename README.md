@@ -30,16 +30,21 @@ Note: Please be careful, some of the browser versions and WebDriver executables 
 
 ### Example of WebDriver Setup for Windows
 
+
+#### Before WebDriver manager 
+
 1. Create a folder named `C:\Selenium`. Note: It can be any name name
 2. Move the executables into this folder.
 3. Add this folder to the *Path* environment variable. (See [How to Add to Windows PATH Environment Variable](https://helpdeskgeek.com/windows-10/add-windows-path-environment-variable/).)
 
+#### After WebDriver manager
+
+1. WebDriver manager automatically resolves WebDriver with "pipenv install" command
 
 # Code Editor
 
 - I was using Visual Studio Code [Visual Studio Code](https://code.visualstudio.com/docs/languages/python)
-- Poople also recommend [PyCharm](https://www.jetbrains.com/pycharm/)
-
+- Alternatively you could also use [PyCharm](https://www.jetbrains.com/pycharm/)
 
 # Run tests
 
