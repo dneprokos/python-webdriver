@@ -1,5 +1,5 @@
 {
-    "browser": "Chrome",
+    "browser": "Headless Chrome",
     "implicit_wait": 10,
     "explicit_wait": 10,
     "base_url": "https://qa-automation-test-site.web.app",

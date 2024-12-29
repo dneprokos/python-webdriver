@@ -42,8 +42,11 @@ def browser(config):
     b = webdriver.Chrome(service=ChromeService(ChromeDriverManager().install()))
 
   elif config['browser'] == 'Headless Chrome':
-    opts = webdriver.ChromeOptions()
-    opts.add_argument('headless')
+    options = webdriver.ChromeOptions()
+    options.add_argument('--headless')  # Run in headless mode
+    options.add_argument('--disable-gpu')  # Disable GPU usage
+    options.add_argument('--no-sandbox')  # Required in CI environments
+    options.add_argument('--disable-dev-shm-usage')  # Overcome limited resource issues
     b = webdriver.Chrome(service=ChromeService(ChromeDriverManager().install()), options=opts)
 
   else:
