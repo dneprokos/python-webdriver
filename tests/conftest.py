@@ -47,7 +47,7 @@ def browser(config):
     options.add_argument('--disable-gpu')  # Disable GPU usage
     options.add_argument('--no-sandbox')  # Required in CI environments
     options.add_argument('--disable-dev-shm-usage')  # Overcome limited resource issues
-    b = webdriver.Chrome(service=ChromeService(ChromeDriverManager().install()), options=opts)
+    b = webdriver.Chrome(service=ChromeService(ChromeDriverManager().install()), options=options)
 
   else:
     raise Exception(f'Browser "{config["browser"]}" is not supported')
