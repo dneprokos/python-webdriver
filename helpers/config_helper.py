@@ -18,3 +18,6 @@ class ConfigHelper:
     def get_base_url(self):
         base_url = self.config_data.get("base_url", "https://qa-automation-test-site.web.app")
         return base_url.rstrip("/")
+    
+    def get_login_credentials(self):
+        return self.config_data.get("login_credentials", {"username": "", "password": ""})

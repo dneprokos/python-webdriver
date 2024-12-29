@@ -63,8 +63,8 @@ def test_list_does_not_contain():
 # Tests verifies list contains a few items.
 def test_list_contains_few_items():
     list1 = [1, 2, 3]
-    list2 = [1, 2]
-    assert list2 in list1
+    list2 = [1, 2, 3]
+    assert list2 == list1
 
 # Tests verifies list dcontain items in a specific order.
 def test_list_contains_items_in_order():

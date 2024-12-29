@@ -5,6 +5,7 @@ Page Object Model for Home Page
 from ..base_page import BasePage
 from helpers.page_names import PageNames
 from helpers.config_helper import ConfigHelper
+from selenium.webdriver.common.by import By
 
 
 class HomePage(BasePage):
@@ -17,6 +18,9 @@ class HomePage(BasePage):
         home_page_url = ConfigHelper().get_base_url() + PageNames.HOME.value
         self.wait_until_url_contains(home_page_url)
 
-        
+    def get_logo_text(self):
+        # Get the logo text
+        logo_element = self.wait_until_element_located((By.XPATH, "//span[text()='QA Automation Web']"))
+        return logo_element.text        
         
 

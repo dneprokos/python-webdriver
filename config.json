@@ -1,6 +1,10 @@
 {
-    "browser": "Chrome",
+    "browser": "Headless Chrome",
     "implicit_wait": 10,
     "explicit_wait": 10,
-    "base_url": "https://qa-automation-test-site.web.app"
+    "base_url": "https://qa-automation-test-site.web.app",
+    "login_credentials": {
+        "username": "test@test.com",
+        "password": "test"
+    }
 }
