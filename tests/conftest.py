@@ -6,7 +6,7 @@ The name of the module is important, as pytest will discover fixtures in files n
 import json
 import pytest
 import os
-from helpers.navigation_helper import NavigationHelper
+from ..helpers.navigation_helper import NavigationHelper
 from selenium import webdriver
 from selenium.common.exceptions import WebDriverException
 from webdriver_manager.chrome import ChromeDriverManager
